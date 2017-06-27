@@ -1,0 +1,10 @@
+﻿@model ClienteProdutoViewModel
+<div>
+    <span class="label label-primary labelw">Produto:</span>
+    @Html.DropDownList("Descricao", Model.Produtos.Select(m => new SelectListItem()
+{ Text = m.Descricao, Value = m.Descricao }).ToList(), "Selecione o Produto", new { @class = "dropdown drop form-control", ng_model = "vm.itens.Produto" })
+</div>
+@*<select asp-for="NomeCliente"
+            asp-items="@Model.ClientesList">
+        <option>Please select one</option>
+    </select>*@

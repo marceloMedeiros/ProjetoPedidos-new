@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <AssemblyName>ProjetoPedidos</AssemblyName>
+    <RootNamespace>ProjetoPedidos</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Componentes\CategoryMenu.cs" />
+    <Compile Remove="ViewModels\ProdutoViewModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="ViewModels\ClienteViewModel.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\Content\site.css" />
+    <Content Include="wwwroot\Images\kerjasama.png" />
+    <Content Include="wwwroot\Images\mad.jpg" />
+    <Content Include="wwwroot\Images\pattern.png" />
+    <Content Include="wwwroot\Images\Vendas-Externas-Logo-fund.jpg" />
+    <Content Include="wwwroot\js\pedido-index.js" />
+    <Content Include="wwwroot\js\pedidoController.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor" Version="1.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="1.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Componentes\" />
+    <Folder Include="Views\Shared\Components\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,67 @@
+﻿<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Titulo</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="~/lib/bootswatch/spacelab/bootstrap.css" rel="stylesheet">
+    <link href="~/Content/site.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*<a class="navbar-brand" href="#">Logo</a>*@
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a asp-controller="Home" asp-action="Index" class="navbar-brand">Home</a></li>
+                    <li class="dropdown ">
+                        <a asp-controller="Pedido"
+                           asp-action="Index"
+                           class="dropdown-toggle" data-toggle="dropdown">Pedido<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-controller="Pedido" asp-action="Index">Novo Pedido</a></li>
+                            <li><a asp-controller="Pedido" asp-action="Consultar">Consultar Pedido</a></li>
+                        </ul>
+                    </li>
+                    <li><a asp-controller="Sobre" asp-action="Index">Sobre</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @*<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>*@
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-sm-2 sidenav">
+
+            </div>
+            <div class="col-sm-8 text-left">
+                @RenderBody()
+
+            </div>
+            <div class="col-sm-2 sidenav">
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid navbar-inverse text-center ">
+        Marcelo Medeiros 2017 ©
+    </footer>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

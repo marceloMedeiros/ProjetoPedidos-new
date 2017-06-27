@@ -1,0 +1,9 @@
+﻿@model ClienteViewModel
+<form asp-controller="Home" asp-action="Create">
+
+    <select asp-for="EmployeeId"
+            asp-items="@(new SelectList(Model.EmployeesList,"Id","FullName"))">
+        <option>Please select one</option>
+    </select>
+    <input type="submit" />
+</form>

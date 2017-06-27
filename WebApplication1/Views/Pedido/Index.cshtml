@@ -1,0 +1,87 @@
+﻿@model ClienteProdutoViewModel
+@{
+}
+@section Scripts {
+    <script src="~/lib/angular/angular.js"></script>
+    <script src="~/js/pedido-index.js"></script>
+    <script src="~/js/pedidoController.js"></script>
+}
+<div class="row">
+    <div class="text-center">
+        <h1>Inclusão de Pedido</h1>
+    </div>
+</div>
+<div ng-app="pedido-index">
+    <div class="well col-sm-10 col-lg-offset-1">
+        <div class="container">
+            @*<form asp-controller="Pedido" asp-action="Incluir">*@
+            <div class="row">
+                <div class="col-sm-4 col-lg-offset-0">
+                    <div class="form-group">
+                        @Html.Partial("selecionaCliente", Model)
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <span class="label label-primary"> Data de Entrega:</span>
+                        @Html.EditorFor(model => model.DataEntrega, new { htmlAttributes = new { @class = "dropdown drop form-control", @style = "width: 150px; " } })
+                    </div>
+                </div>
+                <div class="col-sm-2 ">
+                </div>
+
+            </div>
+            <div class="row">
+                <div class=" col-sm-12">
+                    <div class="well col-sm-7 align-baseline" title="Itens do Pedido">
+                        <div class="row">
+                            <form novalidate name="incluirItensForm" ng-submit="vm.addItem()">
+                                <div class="col-sm-4 ">
+                                    @Html.Partial("selecionaProduto", Model)
+                                </div>
+                                <div class="col-sm-4 col-lg-offset-1 " style="padding-top:10px;">
+                                    <input type="submit" value="Adicionar Item" class="btn btn-info btn-block" style="width:120px;" />
+                                </div>
+                                <div class="col-sm-2 ">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="row" style="padding:7px;">
+                            <div ng-controller="pedidoController as vm">
+                                <table class="table table-responsive table-striped">
+                                    <tr>
+                                        <td>Produto</td>
+                                        <td>Qtd.</td>
+                                        <td>Valor</td>
+                                        <td>Valor Total</td>
+                                        <td>Ação</td>
+                                    </tr>
+                                    <tr ng-repeat="item in vm.itensPH">
+                                        <td>{{ item.Produto }}</td>
+                                        <td>{{ item.Quantidade }}</td>
+                                        <td>{{ item.Valor | currency : "R$" : 2 }}</td>
+                                        <td>{{ item.ValorTotal | currency : "R$" : 2 }}</td>
+                                        <td> <a href="">Remover</a></td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-lg-offset-6">
+                    <span data-bind="ValorTotal"> Valor Total: R$0.00</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-lg-offset-6">
+                    <input type="submit" class="btn btn-info btn-block" style="width:120px;" value="Incluir Pedido" />
+                </div>
+            </div>
+            @*</form>*@
+        </div>
+    </div>
+</div>
+
